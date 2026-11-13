@@ -1,0 +1,35 @@
+{
+  "format": "joons-mcp-diff/snapshot",
+  "schemaVersion": 1,
+  "createdAt": "2026-01-02T00:00:00.000Z",
+  "tool": { "name": "fixture-snapshot-writer", "version": "1.0.0" },
+  "label": null,
+  "server": { "name": "beta-server", "version": "2.1.0", "protocolVersion": "2025-06-18" },
+  "tools": [
+    {
+      "name": "search",
+      "title": "Search beta corpus",
+      "description": "Full text search over the beta corpus.",
+      "inputSchema": { "type": "object", "properties": { "q": { "type": "string" } } },
+      "outputSchema": { "type": "array" },
+      "annotations": null
+    },
+    {
+      "name": "get_weather ",
+      "title": "Weather lookup",
+      "description": "Returns current weather for a city.",
+      "inputSchema": { "type": "object", "properties": { "city": { "type": "string" } } },
+      "outputSchema": { "type": "object" },
+      "annotations": null
+    },
+    {
+      "name": "help",
+      "title": "Show help",
+      "description": null,
+      "inputSchema": { "type": "object", "properties": {} },
+      "outputSchema": null,
+      "annotations": null
+    }
+  ],
+  "stats": { "toolCount": 3, "pages": 1, "duplicateNames": [] }
+}

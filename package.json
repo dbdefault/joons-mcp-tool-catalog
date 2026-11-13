@@ -1,0 +1,41 @@
+{
+  "name": "joons-mcp-tool-catalog",
+  "version": "0.1.0",
+  "description": "Offline command-line tool that merges MCP tool-list snapshots into a normalized, searchable catalog.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbdefault/joons-mcp-tool-catalog.git"
+  },
+  "homepage": "https://github.com/dbdefault/joons-mcp-tool-catalog#readme",
+  "bugs": {
+    "url": "https://github.com/dbdefault/joons-mcp-tool-catalog/issues"
+  },
+  "license": "Apache-2.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "joons-mcp-tool-catalog": "bin/joons-mcp-tool-catalog.js"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "src",
+    "examples",
+    "docs",
+    "README.md",
+    "README.ko.md",
+    "ARCHITECTURE.md",
+    "SECURITY.md",
+    "LIMITATIONS.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/test.js"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "format": "joons-mcp-diff/snapshot",
+  "schemaVersion": 1,
+  "createdAt": "2026-01-01T00:00:00.000Z",
+  "tool": { "name": "fixture-snapshot-writer", "version": "1.0.0" },
+  "label": null,
+  "server": { "name": "alpha-server", "version": "1.0.0", "protocolVersion": "2025-06-18" },
+  "tools": [
+    {
+      "name": "greet",
+      "title": "Greeting tool",
+      "description": "Says hello to a user.",
+      "inputSchema": { "type": "object", "properties": { "who": { "type": "string" } } },
+      "outputSchema": { "type": "string" },
+      "annotations": null
+    },
+    {
+      "name": "search",
+      "title": "Search index",
+      "description": "Searches the local document index.",
+      "inputSchema": { "type": "object", "properties": { "q": { "type": "string" } } },
+      "outputSchema": { "type": "array" },
+      "annotations": null
+    },
+    {
+      "name": "Get_Weather",
+      "title": "Weather lookup, docs at https://internal.example-ops.net/weather",
+      "description": "Looks up weather for a city. Contact ops@example-ops.net for access.",
+      "inputSchema": { "type": "object", "properties": { "city": { "type": "string" } } },
+      "outputSchema": { "type": "object" },
+      "annotations": null
+    }
+  ],
+  "stats": { "toolCount": 3, "pages": 1, "duplicateNames": [] }
+}

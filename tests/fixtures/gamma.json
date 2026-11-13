@@ -1,0 +1,27 @@
+{
+  "format": "joons-mcp-diff/snapshot",
+  "schemaVersion": 1,
+  "createdAt": "2026-01-03T00:00:00.000Z",
+  "tool": { "name": "fixture-snapshot-writer", "version": "1.0.0" },
+  "label": null,
+  "server": { "name": "gamma-server", "version": "0.9.0", "protocolVersion": "2025-03-26" },
+  "tools": [
+    {
+      "name": "compute",
+      "title": "Run a computation",
+      "description": "Evaluates a arithmetic expression string.",
+      "inputSchema": { "type": "object", "properties": { "expr": { "type": "string" } } },
+      "outputSchema": { "type": "number" },
+      "annotations": null
+    },
+    {
+      "name": "help",
+      "title": "Help topics",
+      "description": "Lists available help topics.",
+      "inputSchema": { "type": "object", "properties": {} },
+      "outputSchema": { "type": "array" },
+      "annotations": null
+    }
+  ],
+  "stats": { "toolCount": 2, "pages": 1, "duplicateNames": [] }
+}

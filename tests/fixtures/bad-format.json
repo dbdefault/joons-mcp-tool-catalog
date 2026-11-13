@@ -1,0 +1,10 @@
+{
+  "format": "not-a-snapshot",
+  "schemaVersion": 1,
+  "createdAt": "2026-01-01T00:00:00.000Z",
+  "tool": { "name": "fixture-snapshot-writer", "version": "1.0.0" },
+  "label": null,
+  "server": { "name": "bad-server", "version": "1.0.0", "protocolVersion": "2025-06-18" },
+  "tools": [],
+  "stats": { "toolCount": 0, "pages": 1 }
+}
