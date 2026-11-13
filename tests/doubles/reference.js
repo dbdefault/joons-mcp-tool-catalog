@@ -365,7 +365,7 @@ export function searchTools(tools, query) {
 
 // ----------------------------------------------------- catalog and reports
 
-const TOOL_IDENTITY = Object.freeze({ name: 'joons-mcp-tool-catalog', version: '0.1.0' });
+const TOOL_IDENTITY = Object.freeze({ name: 'joons-mcp-tool-catalog', version: '0.1.1' });
 
 function redactOrNull(text, counter) {
   if (text === null) return null;

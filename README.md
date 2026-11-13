@@ -87,7 +87,7 @@ and every report field.
    {
      "format": "joons-mcp-tool-catalog/catalog",
      "schemaVersion": 1,
-     "tool": { "name": "joons-mcp-tool-catalog", "version": "0.1.0" },
+     "tool": { "name": "joons-mcp-tool-catalog", "version": "0.1.1" },
      "command": "build",
      "counts": { "servers": 1, "tools": 2, "collisions": 0, "collidingTools": 0, "redactions": 0 },
      "servers": [{ "server": "server-1", "sha256": "a1b2c3d4e5f6", "tools": 2 }],
@@ -174,5 +174,5 @@ built-in `node:test` runner. Zero dependencies; nothing is installed.
 Apache-2.0. See [LICENSE](LICENSE).
 # Supported interface
 
-Version 0.1.0 is a command-line tool. The code is not a supported library: modules under `src/` are internal, with no API stability and no safety guarantees for in-process use or untrusted in-process objects. Use the CLI with snapshot files.
+Version 0.1.1 is a command-line tool. The code is not a supported library: modules under `src/` are internal, with no API stability and no safety guarantees for in-process use or untrusted in-process objects. Use the CLI with snapshot files.
 

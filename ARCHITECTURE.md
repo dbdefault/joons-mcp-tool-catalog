@@ -71,5 +71,5 @@ artifact write is not transactional, and a write failure preserves any
 existing destination.
 # Supported interface
 
-Version 0.1.0 is a command-line tool. The code is not a supported library: modules under `src/` are internal, with no API stability and no safety guarantees for in-process use or untrusted in-process objects. Use the CLI with snapshot files.
+Version 0.1.1 is a command-line tool. The code is not a supported library: modules under `src/` are internal, with no API stability and no safety guarantees for in-process use or untrusted in-process objects. Use the CLI with snapshot files.
 

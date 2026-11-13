@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.1
+
+Fixes to the credential-shaped identifier refusal (a heuristic, not a
+guarantee). Reports now carry tool version 0.1.1; nothing else changed.
+
+- The unlabeled private key header (`-----BEGIN PRIVATE KEY-----`) is now
+  refused. Before, an off-by-one in the header search let it through.
+- The recognised families were aligned with a reviewed list: AWS ID
+  prefixes (AKIA, ASIA, AGPA, AIDA, AROA, AIPA, ANPA, ANVA), GitHub, GitLab,
+  Slack, Stripe-style, Google, SendGrid and npm tokens, Bearer values, JWTs
+  and PEM private key headers. Certificate headers stay accepted. Tokens
+  outside this list are not detected.
+- A key-like fragment inside an ordinary word (for example `task-runner`)
+  is no longer treated as a token.
+- A wall-clock timing test was relaxed for shared CI machines (test only).
+
 ## 0.1.0
 
 Initial release.

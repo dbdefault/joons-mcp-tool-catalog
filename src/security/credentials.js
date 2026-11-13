@@ -2,14 +2,15 @@
 // scanner shared by input admission (refusal) and display redaction
 // (masking). Never emits decoded input; malformed encodings are skipped.
 
-// Direct token shapes. No left boundary guards: a prefixed
-// token ("prefixghp_...") is still a token. Quantifiers are bounded;
-// alternations are flat (no nested quantifiers, no backtracking bombs).
-const GH_PREFIX = /(?:ghp|gho|ghu)_[A-Za-z0-9]{20,}/;
-const GH_PAT = /github_pat_[A-Za-z0-9_]{20,}/;
-const SK_KEY = /sk-[A-Za-z0-9]{16,}/;
-const AKIA_KEY = /AKIA[0-9A-Z]{16}/;
-const SLACK_KEY = /xox[bapors]-[A-Za-z0-9-]{10,}/;
+// Fixed prefixes and character runs avoid nested repetition. Short key-like
+// fragments inside ordinary alphanumeric words are not identifier starts.
+const GH_PREFIX = /gh[pousr]_[A-Za-z0-9]{20,}/;
+const GH_PAT = /github_pat_[A-Za-z0-9_-]{6,}/;
+const KEY = /(?:^|[^A-Za-z0-9])(?:sk-|sk_live_|pk_live_|rk_live_)[A-Za-z0-9_-]{6,}/;
+const LEGACY_KEY = /(?:^|[^A-Za-z0-9])sk-[A-Za-z0-9]{16,}/;
+const AWS_KEY = /(?:AKIA|ASIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA)[0-9A-Z]{16}/;
+const SLACK_KEY = /(?:^|[^A-Za-z0-9])xox[aboprs]-[A-Za-z0-9-]{6,}/;
+const OTHER_KEYS = /(?:glpat-[A-Za-z0-9_-]{6,}|AIza[A-Za-z0-9_-]{35}|ya29\.[A-Za-z0-9_-]+|SG\.[A-Za-z0-9_-]{20,}|npm_[A-Za-z0-9_-]{20,})/;
 
 // "Bearer <token>": the shape is Bearer\s+\S+; any non-space value
 // counts (case-sensitive "Bearer").
@@ -24,7 +25,7 @@ const PAIR_EQ = new RegExp(`(?:${SENSITIVE_NAME})=[^\\s\\p{White_Space}]{8,}`, '
 const PAIR_COLON = new RegExp(`(?:${SENSITIVE_NAME}):[\\s\\p{White_Space}]*[^\\s\\p{White_Space}]{8,}`, 'iu');
 const PAIR_JSON = new RegExp(`"(?:${SENSITIVE_NAME})":"[^"\\r\\n]{8,}"`, 'i');
 
-const BASE64ISH_TOKEN = /[A-Za-z0-9_+\/-]{11,}={0,2}/g;
+const BASE64ISH_TOKEN = /[A-Za-z0-9_+\/-]{8,}={0,2}/g;
 export function replaceJwt(text, mask) {
   return text.replace(/[A-Za-z0-9_-]+(?:\.[A-Za-z0-9_-]+)*/g,
     (part) => chainHasJwt(part) ? mask : part);
@@ -57,8 +58,8 @@ const CONTROL_STRIP = new RegExp(
 function scanDirect(text) {
   if (GH_PREFIX.test(text)) return true;
   if (GH_PAT.test(text)) return true;
-  if (SK_KEY.test(text)) return true;
-  if (AKIA_KEY.test(text)) return true;
+  if (KEY.test(text) || LEGACY_KEY.test(text)) return true;
+  if (AWS_KEY.test(text) || OTHER_KEYS.test(text)) return true;
   if (SLACK_KEY.test(text)) return true;
   for (const line of text.split(/[\r\n]/)) {
     const start = line.indexOf('-----BEGIN ');

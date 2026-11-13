@@ -1,6 +1,6 @@
 {
   "name": "joons-mcp-tool-catalog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Offline command-line tool that merges MCP tool-list snapshots into a normalized, searchable catalog.",
   "type": "module",
   "repository": {

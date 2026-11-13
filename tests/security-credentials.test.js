@@ -117,3 +117,18 @@ test('unlabeled and labeled private key headers are refused', () => {
     assert.equal(scanForCredential(name), false, name);
   }
 });
+
+
+test('credential families recognised (boundaries and negative controls)', () => {
+  const A = 'A'.repeat(16);
+  for (const p of ['AKIA', 'ASIA', 'AGPA', 'AIDA', 'AROA', 'AIPA', 'ANPA', 'ANVA']) {
+    assert.equal(scanForCredential(p + A), true, p);
+    assert.equal(scanForCredential(p + 'A'.repeat(15)), false, p + ' short');
+  }
+  for (const name of ['ghp_' + 'a'.repeat(20), 'github_pat_abcdef', 'glpat-abcdef', 'sk-abcdef', 'xoxb-123456', 'AIza' + 'b'.repeat(35), 'ya29.token', 'SG.' + 'c'.repeat(20), 'npm_' + 'd'.repeat(20), '-----BEGIN PRIVATE KEY-----']) {
+    assert.equal(scanForCredential(name), true, name);
+  }
+  for (const name of ['ghp_' + 'a'.repeat(19), 'task-runner', 'desk-tool', 'read_file', '-----BEGIN CERTIFICATE-----']) {
+    assert.equal(scanForCredential(name), false, name);
+  }
+});

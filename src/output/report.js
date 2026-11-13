@@ -23,7 +23,7 @@ export function makeReport(command, merged, extra = {}, { details = false } = {}
   });
   return {
     format: 'joons-mcp-tool-catalog/report', schemaVersion: 1,
-    tool: { name: 'joons-mcp-tool-catalog', version: '0.1.0' }, command,
+    tool: { name: 'joons-mcp-tool-catalog', version: '0.1.1' }, command,
     status: 'PASS', mode: { details },
     counts: { servers: catalog.counts.servers, tools: catalog.counts.tools,
       collisions: catalog.counts.collisions, collidingTools: catalog.counts.collidingTools,

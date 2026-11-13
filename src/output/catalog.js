@@ -19,7 +19,7 @@ export function makeCatalog(command, merged, extra = {}) {
   });
   return {
     format: 'joons-mcp-tool-catalog/catalog', schemaVersion: 1,
-    tool: { name: 'joons-mcp-tool-catalog', version: '0.1.0' }, command,
+    tool: { name: 'joons-mcp-tool-catalog', version: '0.1.1' }, command,
     counts: { servers: merged.servers.length, tools: tools.length,
       collisions: collisions.length, collidingTools: colliding.size, redactions },
     servers: merged.servers.map((server, i) => ({ server: server.server,

@@ -203,5 +203,5 @@ test('real process: --help and --version exit 0 with fixed text', async () => {
   assert.match(help.stdout, /Usage:/);
   const version = await cli(['--version']);
   assert.equal(version.code, 0);
-  assert.match(version.stdout, /^joons-mcp-tool-catalog 0\.1\.0\n$/);
+  assert.match(version.stdout, /^joons-mcp-tool-catalog 0\.1\.1\n$/);
 });

@@ -1,4 +1,4 @@
-# CLI reference - joons-mcp-tool-catalog 0.1.0
+# CLI reference - joons-mcp-tool-catalog 0.1.1
 
 Exact grammar, exit codes, fixed error lines and report fields.
 
@@ -109,7 +109,7 @@ outputs before sharing.
 {
   "format": "joons-mcp-tool-catalog/report",
   "schemaVersion": 1,
-  "tool": { "name": "joons-mcp-tool-catalog", "version": "0.1.0" },
+  "tool": { "name": "joons-mcp-tool-catalog", "version": "0.1.1" },
   "command": "search",
   "status": "PASS",
   "mode": { "details": false },
@@ -136,7 +136,7 @@ outputs before sharing.
   `--details`, `name` holds the (redacted) exact name or weak key. Match
   entries carry the tool ordinal, its server ordinal and the integer
   score; with `--details`, `name` holds the redacted tool name.
-- `problems` is always `[]` in 0.1.0: any input problem rejects the
+- `problems` is always `[]` in 0.1.1: any input problem rejects the
   invocation before a report exists.
 
 ## Artifact schema (build only)
@@ -149,7 +149,7 @@ report is emitted only after all three writes succeed.
 {
   "format": "joons-mcp-tool-catalog/catalog",
   "schemaVersion": 1,
-  "tool": { "name": "joons-mcp-tool-catalog", "version": "0.1.0" },
+  "tool": { "name": "joons-mcp-tool-catalog", "version": "0.1.1" },
   "command": "build",
   "counts": { "servers": 1, "tools": 2, "collisions": 0, "collidingTools": 0, "redactions": 0 },
   "servers": [{ "server": "server-1", "sha256": "a1b2c3d4e5f6", "tools": 2 }],
