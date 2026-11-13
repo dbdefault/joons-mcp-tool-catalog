@@ -107,3 +107,13 @@ test('clean identifiers never hit', () => {
   miss(null);
   miss(undefined);
 });
+
+
+test('unlabeled and labeled private key headers are refused', () => {
+  for (const name of ['-----BEGIN PRIVATE KEY-----', '-----BEGIN RSA PRIVATE KEY-----', '-----BEGIN EC PRIVATE KEY-----', '-----BEGIN OPENSSH PRIVATE KEY-----', '-----BEGIN ENCRYPTED PRIVATE KEY-----', 'prefix-----BEGIN PRIVATE KEY-----suffix']) {
+    assert.equal(scanForCredential(name), true, name);
+  }
+  for (const name of ['-----BEGIN CERTIFICATE-----', '-----BEGIN PRIVATE-----', 'BEGIN PRIVATE KEY', 'ordinary-tool-name']) {
+    assert.equal(scanForCredential(name), false, name);
+  }
+});

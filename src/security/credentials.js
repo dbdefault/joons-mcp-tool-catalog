@@ -62,7 +62,7 @@ function scanDirect(text) {
   if (SLACK_KEY.test(text)) return true;
   for (const line of text.split(/[\r\n]/)) {
     const start = line.indexOf('-----BEGIN ');
-    if (start !== -1 && line.indexOf(' PRIVATE KEY-----', start + 11) !== -1) return true;
+    if (start !== -1 && line.indexOf(' PRIVATE KEY-----', start + 10) !== -1) return true;
   }
   if (hasJwt(text)) return true;
   if (BEARER_TOKEN.test(text)) return true;
